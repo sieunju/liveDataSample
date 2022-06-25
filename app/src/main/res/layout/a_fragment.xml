@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".testfragments.FragmentActivity">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.hmju.livedata.testfragments.FragmentViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@{vm.stackFragmentName}"
+            tools:text="ㅁㄴㅇㄹㅁㄴㅇㄹ" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcv"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_test" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>
