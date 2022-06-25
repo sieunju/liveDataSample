@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.hmju.livedata.databinding.AMainBinding
 import com.hmju.livedata.testfragments.FragmentActivity
+import com.hmju.livedata.testrecyclerview.TestRecyclerViewActivity
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         with(viewModel) {
             startFragmentTestEvent.observe(this@MainActivity) {
                 Intent(this@MainActivity, FragmentActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+
+            startRecyclerViewTestEvent.observe(this@MainActivity) {
+                Intent(this@MainActivity,TestRecyclerViewActivity::class.java).apply {
                     startActivity(this)
                 }
             }

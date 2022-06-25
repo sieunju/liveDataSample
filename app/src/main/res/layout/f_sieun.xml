@@ -30,6 +30,18 @@
             android:onClick="@{()->fm.onMoveQtzzFragment()}"
             android:text="QTZZ 로 이동" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->fm.onShowTestDialogFragment(true)}"
+            android:text="Dialog Fragment를 계속 생성하는 타입" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->fm.onShowTestDialogFragment(false)}"
+            android:text="Dialog Fragment를 메모리에 들고있다고 show 만하는 타입" />
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

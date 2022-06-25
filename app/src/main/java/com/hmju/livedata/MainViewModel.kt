@@ -16,6 +16,7 @@ class MainViewModel : ViewModel() {
     val clickCountEvent : LiveData<String> get() = _clickCountEvent
 
     val startFragmentTestEvent : MutableLiveData<Unit> by lazy { MutableLiveData() }
+    val startRecyclerViewTestEvent : MutableLiveData<Unit> by lazy { MutableLiveData() }
 
 
     fun onClickCount(){
@@ -24,5 +25,9 @@ class MainViewModel : ViewModel() {
 
     fun onMoveTestFragment(){
         startFragmentTestEvent.value = null
+    }
+
+    fun onMoveTestRecyclerView(){
+        startRecyclerViewTestEvent.value = null
     }
 }

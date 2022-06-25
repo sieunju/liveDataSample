@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="@{vm.clickCountEvent}"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -35,8 +35,15 @@
             android:layout_margin="15dp"
             android:onClick="@{()->vm.onMoveTestFragment()}"
             android:text="프레그먼트 테스트 이동"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:onClick="@{()->vm.onMoveTestRecyclerView()}"
+            android:text="리싸이클러뷰 이동"
+            android:textSize="15sp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

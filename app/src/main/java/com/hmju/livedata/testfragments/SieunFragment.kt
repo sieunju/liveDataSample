@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.hmju.livedata.BR
 import com.hmju.livedata.R
 import com.hmju.livedata.databinding.FSieunBinding
+import com.hmju.livedata.dialog.TestDialogFragment
 import timber.log.Timber
 
 class SieunFragment : Fragment() {
@@ -20,6 +21,8 @@ class SieunFragment : Fragment() {
     private val viewModel: SieunViewModel by viewModels()
 
     private val activityViewModel: FragmentViewModel by activityViewModels()
+
+    private val testDialogFragment: TestDialogFragment by lazy { TestDialogFragment() }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -38,7 +41,7 @@ class SieunFragment : Fragment() {
             false
         ).run {
             setVariable(BR.vm, viewModel)
-            setVariable(BR.fm,this@SieunFragment)
+            setVariable(BR.fm, this@SieunFragment)
             lifecycleOwner = this@SieunFragment
             return@run this.root
         }
@@ -51,8 +54,16 @@ class SieunFragment : Fragment() {
         activityViewModel.onAddFragmentName(javaClass.simpleName.substringAfterLast("."))
     }
 
-    fun onMoveQtzzFragment(){
+    fun onMoveQtzzFragment() {
         findNavController().navigate(R.id.qtzzFragment)
+    }
+
+    fun onShowTestDialogFragment(isNewType: Boolean) {
+        if (isNewType) {
+            TestDialogFragment().simpleShow(childFragmentManager)
+        } else {
+            testDialogFragment.simpleShow(childFragmentManager)
+        }
     }
 
     override fun onDestroyView() {
