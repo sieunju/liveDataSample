@@ -19,6 +19,10 @@ class ListLiveData<T> : MutableLiveData<MutableList<T>>() {
     operator fun get(idx: Int) =
         if (size > idx) value[idx] else throw ArrayIndexOutOfBoundsException("Index $idx Size $size")
 
+    fun data(): List<T> {
+        return temp
+    }
+
     fun add(item: T) {
         temp.add(item)
         value = temp

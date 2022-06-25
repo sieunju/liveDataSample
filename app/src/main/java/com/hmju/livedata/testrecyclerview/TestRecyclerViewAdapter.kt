@@ -6,10 +6,12 @@ import androidx.core.view.doOnAttach
 import androidx.core.view.doOnDetach
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewTreeLifecycleOwner
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.hmju.livedata.BR
 import com.hmju.livedata.R
 import com.hmju.livedata.databinding.VhTestBinding
+import timber.log.Timber
 
 /**
  * Description :
@@ -58,9 +60,12 @@ class TestRecyclerViewAdapter(
 
         init {
             binding.setVariable(BR.vm, viewModel)
-
             itemView.doOnAttach {
                 binding.lifecycleOwner = ViewTreeLifecycleOwner.get(it)
+            }
+
+            itemView.doOnDetach {
+                binding.lifecycleOwner = null
             }
         }
 

@@ -25,11 +25,20 @@ class TestRecyclerViewModel : ViewModel() {
     private val _rvTitle: MutableLiveData<String> by lazy { MutableLiveData() }
     val rvTitle : LiveData<String> get() = _rvTitle
 
+    private val _listTest : MutableLiveData<MutableList<String>> by lazy { MutableLiveData() }
+    val listTest : LiveData<MutableList<String>> get() = _listTest
+
     fun start() {
+        _listTest.value?.forEach {
+            if(it == "ListLiveData?") {
+
+            }
+        }
         viewModelScope.launch(Dispatchers.Main) {
             val list = dummyList()
             _dataList.addAll(list)
         }
+
     }
 
     fun ranTitle(){
@@ -37,7 +46,7 @@ class TestRecyclerViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.Main) {
             repeat(100) {
                 _rvTitle.value = ranArr[Random.nextInt(ranArr.size)]
-                Timber.d("RanTitle ${rvTitle.value}")
+                // Timber.d("RanTitle ${rvTitle.value}")
                 delay(1500)
             }
         }

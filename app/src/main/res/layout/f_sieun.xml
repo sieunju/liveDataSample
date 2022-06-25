@@ -27,7 +27,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->fm.onMoveQtzzFragment()}"
+            android:onClick="@{()->vm.onMoveFragment()}"
             android:text="QTZZ 로 이동" />
 
         <Button

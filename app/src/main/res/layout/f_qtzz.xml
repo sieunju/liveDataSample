@@ -27,7 +27,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->fm.onMoveAppleFragment()}"
+            android:onClick="@{()->vm.onMoveFragment()}"
             android:text="애플로 이동" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

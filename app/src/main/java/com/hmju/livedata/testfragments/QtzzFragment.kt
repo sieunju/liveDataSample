@@ -47,7 +47,11 @@ class QtzzFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Timber.d("onViewCreated")
-
+        with(viewModel) {
+            startQtzzFragmentEvent.observe(viewLifecycleOwner) {
+                findNavController().navigate(R.id.appleFragment)
+            }
+        }
         activityViewModel.onAddFragmentName(javaClass.simpleName.substringAfterLast("."))
     }
 

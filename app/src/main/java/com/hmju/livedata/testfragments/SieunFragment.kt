@@ -50,7 +50,12 @@ class SieunFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Timber.d("onViewCreated")
-
+        with(viewModel) {
+            startQtzzFragmentEvent.observe(viewLifecycleOwner) {
+                Timber.d("QTZZ $it")
+                findNavController().navigate(R.id.qtzzFragment)
+            }
+        }
         activityViewModel.onAddFragmentName(javaClass.simpleName.substringAfterLast("."))
     }
 

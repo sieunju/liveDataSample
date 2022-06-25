@@ -11,12 +11,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.hmju.livedata.BR
 import com.hmju.livedata.R
+import com.hmju.livedata.databinding.FAppleBinding
 import com.hmju.livedata.databinding.FSieunBinding
 import timber.log.Timber
 
 class AppleFragment : Fragment() {
 
-    private val viewModel: SieunViewModel by viewModels()
+    private val viewModel: AppleViewModel by viewModels()
 
     private val activityViewModel: FragmentViewModel by activityViewModels()
 
@@ -30,9 +31,9 @@ class AppleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         Timber.d("onCreateView")
-        return DataBindingUtil.inflate<FSieunBinding>(
+        return DataBindingUtil.inflate<FAppleBinding>(
             inflater,
-            R.layout.f_sieun,
+            R.layout.f_apple,
             container,
             false
         ).run {

@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 
 class SieunViewModel : ViewModel() {
 
-    val startQtzzFragmentEvent: MutableLiveData<Unit> by lazy { MutableLiveData() }
+    val startQtzzFragmentEvent: MutableLiveData<Long> by lazy { MutableLiveData() }
 
     fun onMoveFragment() {
-        startQtzzFragmentEvent.value = null
+        startQtzzFragmentEvent.value = System.currentTimeMillis()
     }
 }
